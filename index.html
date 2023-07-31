@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+    <script>
+        setInterval(() => {
+            let clock =""
+            document.querySelector("#wrapper").innerHTML += " ";
+           
+            const dt = new Date();
+            clock +=" "+ getDayName(dt.getDay());
+            clock +=","+ dt.getDate();
+            clock +="/"+ (dt.getMonth() + 1);
+            clock +="/"+ dt.getFullYear();
+            clock +="/"+ dt.getHours();
+            clock +=":"+ dt.getMinutes();
+            clock +=":"+ dt.getSeconds();
+            let a=" ";
+            document.querySelector("#wrapper").innerHTML = clock +a;
+        }, 1000);
+        function getDayName(number){
+            day=["Sunday" , "Monday"]
+            return day[number];
+        }
+        function getMonthName(number){
+            month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+            return month [number-1]
+        }
+
+
+
+    </script>
+</body>
+
+</html>
