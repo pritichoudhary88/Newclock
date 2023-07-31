@@ -15,25 +15,32 @@
             document.querySelector("#wrapper").innerHTML += " ";
            
             const dt = new Date();
-            clock +=" "+ getDayName(dt.getDay());
-            clock +=","+ dt.getDate();
-            clock +="/"+ (dt.getMonth() + 1);
-            clock +="/"+ dt.getFullYear();
-            clock +="/"+ dt.getHours();
-            clock +=":"+ dt.getMinutes();
-            clock +=":"+ dt.getSeconds();
-            let a=" ";
-            document.querySelector("#wrapper").innerHTML = clock +a;
+            clock +=" "+appendZero( getDayName(dt.getDay()));
+            clock +=", "+ dt.getDate();
+            clock +=" /"+ getMonthName(dt.getMonth() + 1);
+            clock +=" /"+ dt.getFullYear();
+            clock +="  "+appendZero( dt.getHours());
+            clock +=":"+appendZero(dt.getMinutes());
+            clock +=":"+appendZero(dt.getSeconds());
+    
+            document.querySelector("#wrapper").innerHTML = clock;
         }, 1000);
         function getDayName(number){
             day=["Sunday" , "Monday"]
             return day[number];
         }
         function getMonthName(number){
-            month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-            return month [number-1]
+            month=["Jan","Feb","Mar","Apr","May","Jun","July","August","Sep","Oct","Nov","Dec"]
+            return month[number-1];
         }
-
+        function appendZero(number){
+            if(number<10){
+                return"0"+number
+            }
+            else{
+                return number
+            }
+        }
 
 
     </script>
